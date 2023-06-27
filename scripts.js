@@ -23,3 +23,9 @@ function operate(operand1, operation, operand2) {
             return divide(operand1, operand2);
     }
 }
+
+const digitButtons = document.querySelectorAll(".digit-button");
+const operationButtons = document.querySelectorAll(".operation-button");
+const finalButtons = document.querySelectorAll(".final-button");
+
+let operand1; let operation; let operand2;

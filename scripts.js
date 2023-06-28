@@ -1,10 +1,4 @@
-/* 
-OBJECTIVES:
-* How do I assign the 3 variables using the buttons?
-Create event listeners for the digit buttons and the operation buttons. When you click on each button, they should return a value to operand1, then operation, then lastly operand2.
-    * When the user presses 3 buttons, the operand1, operation, and operand2, how do you make it so those 3 variables are assigned in that order?
-    * Possible Solution: create a temporary variable named "character" and use that to assign the variables instead.
-*/
+/* Technical things first, Presentation last */
 function add(a, b) {
     return a + b;
 }
@@ -36,13 +30,14 @@ const operationButtons = document.querySelectorAll(".operation-button");
 const finalButtons = document.querySelectorAll(".final-button");
 
 let operand1; let operation; let operand2;
+let preOperand1 = ""; let preOperand2 = "";
 
 digitButtons.forEach(button => button.addEventListener("click", () => {
     if(operand1 === undefined) {
-        operand1 = button.textContent;
-        console.log(operand1);
-    } else if ((operand2 === undefined) && (operation)) {
-        operand2 = button.textContent;
+        preOperand1 += button.textContent;
+        console.log(operand1); /* not valid */
+    } else if ((operand2 === undefined) && operation && (operand1 || operand1 === 0)) {
+        preOperand2 += button.textContent;
         console.log(operand2);
     }
 
@@ -58,6 +53,9 @@ digitButtons.forEach(button => button.addEventListener("click", () => {
 operationButtons.forEach(button => button.addEventListener("click", () => {
     if(!operation) {
         operation = button.textContent;
+        if (!operand1) {
+            operand1 = preOperand1;  
+        }
         console.log(operation);
     }
     /* It's good to note that the operation symbols all come out as true */
@@ -67,12 +65,16 @@ operationButtons.forEach(button => button.addEventListener("click", () => {
 finalButtons.forEach(button => button.addEventListener("click", () => {
     switch (button.textContent) {
         case "=":
+            operand2 = preOperand2;
             if((operand1 || operand1 === 0) && operation && (operand2 || operand2 === 0)) {
-                finalValue = operate(operand1, operation, operand2);
-                console.log(finalValue);  
+                solution = operate(operand1, operation, operand2);
+                console.log(solution);
+                operand1 = solution; 
+                operand2 = undefined; operation = undefined;
+                preOperand1 = ""; preOperand2 = "";
             }
             /* Code that displays it to the outcome-text section */
-            /* Code that makes it so this value then also be used in the next operation if the user decided to add another operation. Apply finalValue to operand1? */
+
             break;
         case "CLEAR":
             operand1 = undefined;

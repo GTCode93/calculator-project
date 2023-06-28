@@ -75,9 +75,9 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
             /* Code that makes it so this value then also be used in the next operation if the user decided to add another operation. Apply finalValue to operand1? */
             break;
         case "CLEAR":
-            operand1 === undefined;
-            operation === undefined;
-            operand2 === undefined;
+            operand1 = undefined;
+            operation = undefined;
+            operand2 = undefined;
             /* Code that clears out the text to the output section, maybe just leave it as a space w/ " "? */
             break;
     }

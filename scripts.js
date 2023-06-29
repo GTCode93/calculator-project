@@ -1,8 +1,6 @@
 /* FINAL OBJECTIVES
 Top down is the most important things you should work on for the final parts of this project!
 
-    * Round off the long answers. The input section can take up to 13 digits, so use that as your margin.
-
     * Make it so whenever solution = operand1 (aka the solution from the last operation becomes the next operation's operand1,) and the user inputs a new number, operand 1 is erased and preOperand1 starts being defined per usual.
 
     * Make it so the user can press buttons on the keyboard to input numbers/operations!
@@ -71,15 +69,16 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
     switch (button.textContent) {
         case "=":
             operand2 = preOperand2;
-            operand1 = parseInt(operand1); 
-            operand2 = parseInt(operand2);
+            operand1 = Number(operand1); 
+            operand2 = Number(operand2);
             if((operand1 || operand1 === 0) && operation && (operand2 || operand2 === 0)) {
                 solution = operate(operand1, operation, operand2);
                 if(solution === Infinity || solution === NaN) {
                     outputText.textContent = "ERROR!";
                     break;
+                } else if (!Number.isInteger(solution) && solution.toString().length > 13) {
+                    solution = solution.toFixed(11);
                 }
-                solution = solution.toFixed(11);
                 operand1 = solution;
                 operand2 = undefined; 
                 operation = undefined;

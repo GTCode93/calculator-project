@@ -40,11 +40,16 @@ const digitButtons = document.querySelectorAll(".digit-button");
 const operationButtons = document.querySelectorAll(".operation-button");
 const finalButtons = document.querySelectorAll(".final-button");
 const outputText = document.querySelector("#output-text");
-let operand1; let operation; let operand2;
+let operand1; let operation; let operand2; let solution;
 let preOperand1 = ""; let preOperand2 = "";
 
 digitButtons.forEach(button => button.addEventListener("click", () => {
     if(operand1 === undefined || isNaN(operand1)) {
+        preOperand1 += button.textContent;
+        outputText.textContent += button.textContent;
+    } else if ((operand1 || operand1 === 0) && operation === undefined) {
+        operand1 = undefined;
+        outputText.textContent = "";
         preOperand1 += button.textContent;
         outputText.textContent += button.textContent;
     } else if ((operand2 === undefined || isNaN(operand2)) && operation && (operand1 || operand1 === 0)) {
@@ -84,6 +89,7 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
                 operation = undefined;
                 preOperand1 = ""; preOperand2 = "";
                 outputText.textContent = solution;
+                solution = undefined;
             }
             break;
         case "CLEAR":

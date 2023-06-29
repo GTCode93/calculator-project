@@ -76,20 +76,24 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
     switch (button.textContent) {
         case "=":
             operand2 = preOperand2;
+            parseInt(operand1); parseInt(operand2);
             if((operand1 || operand1 === 0) && operation && (operand2 || operand2 === 0)) {
-                solution = operate(parseInt(operand1), operation, parseInt(operand2));
-                /* Add code here to round up the answer, for visual purposes mostly! 
-                    * There can be a total of  13 digits inside the output section in total without it overflowing or looking crowded.
-                */
-                operand1 = solution; 
-                operand2 = undefined; operation = undefined;
+                solution = operate(operand1, operation, operand2);
+                if(solution === Infinity || solution === NaN) {
+                    outputText.textContent = "ERROR!";
+                    break;
+                }
+                operand1 = solution;
+                operand2 = undefined; 
+                operation = undefined;
                 preOperand1 = ""; preOperand2 = "";
+                outputText.textContent = solution;
             }
-            outputText.textContent = solution;
             break;
         case "CLEAR":
+            preOperand1 = ""; preOperand2 = "";
             operand1 = undefined;
-            operation = undefined;
+            operation = undefined; 
             operand2 = undefined;
             outputText.textContent = "";
             break;

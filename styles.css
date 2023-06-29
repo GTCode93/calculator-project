@@ -1,27 +1,6 @@
-/* 
-OBJECTIVES:
-* What aesthetic/color scheme do I want the calculator to be? For now I'm leaning towards a green-ish theme cuz fun
-
-* Borders and curves will make the design look good.
-    * How will the calculator buttons look like? I want them to be square-ish and curved.
-    * How will the main 2 flex items look like? I want the output to have a curve and grey-ish interior/background color with a black, curved border.
-    * 1st flex item, output will also need the text to orient to the right. Cuz that's how calculators work or whatever
-    * I don't imagine the 2nd flex item, the input, will have a border. To make it look cohesive to the main calculator, yk.
-
-* What color will the font be?
-
-* How will the calculator sit in the page? Should I sit it in the middle of the page or should I just leave it as a default in the top left?
-
-* How large will the calculator be? That depends on general padding/margins of not just the calculator base but also the specific items.
-
-* Flexbox issues will be written below here cuz that'll be majority of the work:
-    *
-
-*/
-
 * {
     font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: bolder;
 }
 
@@ -37,6 +16,10 @@ body {
     border: 3px black solid;
     border-radius: 15px;
     padding: 25px 15px 25px 15px;
+    margin: 50px;
+    background-color: white;
+    background-image: url(./images/plant.jpg);
+    background-size: 700px;
 }
 
 #output-section {
@@ -86,7 +69,11 @@ body {
     width: 50px;
     border-radius: 15px;
     border: 2px black solid;
-/*     background-color: rgb(121, 212, 121) */
+    background-color: rgb(173, 199, 173)
+}
+
+.operation-button {
+    background: rgb(76, 195, 76)
 }
 
 #clear-button {
@@ -94,4 +81,9 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 11px;
+    background-color: rgb(123, 123, 123);
+}
+
+#equal-button {
+    background-color: rgb(123, 123, 123);
 }

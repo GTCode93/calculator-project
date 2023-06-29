@@ -1,3 +1,21 @@
+/* FINAL OBJECTIVES
+Top down is the most important things you should work on for the final parts of this project!
+
+    * Display an error message when trying to divide by 0
+
+    * Pressing the = button before entering all the values you need can create errors. Make the event listeners fool proof! The user must have the operand1, operation, and operand2 defined before equals does anything.
+
+    * Round off the long answers. The input section can take up to 13 digits, so use that as your margin.
+
+    * Make it so whenever solution = operand1 (aka the solution from the last operation becomes the next operation's operand1,) and the user inputs a new number, operand 1 is erased and preOperand1 starts being defined per usual.
+
+    * Make it so the user can press buttons on the keyboard to input numbers/operations!
+
+    * Add a backspace button (that also works with the keyboard) where if you press it, it deletes the most previous number input.
+
+    * Add a period button to make it so you can work with floating numbers. Remember that in an input they can only be a single input of a period in the number input, no more.
+*/
+
 function add(a, b) {
     return a + b;
 }
@@ -45,6 +63,7 @@ digitButtons.forEach(button => button.addEventListener("click", () => {
 operationButtons.forEach(button => button.addEventListener("click", () => {
     /* add code here so if an operation button is chosen but preOperand1 is empty, "", nothing happens. */
     if(!operation) {
+
         operation = button.textContent;
         outputText.textContent += " " + button.textContent + " ";
         if (!operand1) {

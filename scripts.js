@@ -1,10 +1,6 @@
 /* FINAL OBJECTIVES
 Top down is the most important things you should work on for the final parts of this project!
 
-    * Display an error message when trying to divide by 0
-
-    * Pressing the = button before entering all the values you need can create errors. Make the event listeners fool proof! The user must have the operand1, operation, and operand2 defined before equals does anything.
-
     * Round off the long answers. The input section can take up to 13 digits, so use that as your margin.
 
     * Make it so whenever solution = operand1 (aka the solution from the last operation becomes the next operation's operand1,) and the user inputs a new number, operand 1 is erased and preOperand1 starts being defined per usual.
@@ -50,10 +46,10 @@ let operand1; let operation; let operand2;
 let preOperand1 = ""; let preOperand2 = "";
 
 digitButtons.forEach(button => button.addEventListener("click", () => {
-    if(operand1 === undefined) {
+    if(operand1 === undefined || isNaN(operand1)) {
         preOperand1 += button.textContent;
         outputText.textContent += button.textContent;
-    } else if ((operand2 === undefined) && operation && (operand1 || operand1 === 0)) {
+    } else if ((operand2 === undefined || isNaN(operand2)) && operation && (operand1 || operand1 === 0)) {
         preOperand2 += button.textContent;
         outputText.textContent += button.textContent;
     }

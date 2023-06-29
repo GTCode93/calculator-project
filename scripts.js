@@ -45,9 +45,7 @@ function operate(operand1, operation, operand2) {
 const digitButtons = document.querySelectorAll(".digit-button");
 const operationButtons = document.querySelectorAll(".operation-button");
 const finalButtons = document.querySelectorAll(".final-button");
-
 const outputText = document.querySelector("#output-text");
-
 let operand1; let operation; let operand2;
 let preOperand1 = ""; let preOperand2 = "";
 
@@ -60,6 +58,7 @@ digitButtons.forEach(button => button.addEventListener("click", () => {
         outputText.textContent += button.textContent;
     }
 }));
+
 operationButtons.forEach(button => button.addEventListener("click", () => {
     /* add code here so if an operation button is chosen but preOperand1 is empty, "", nothing happens. */
     if(!operation) {
@@ -76,7 +75,8 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
     switch (button.textContent) {
         case "=":
             operand2 = preOperand2;
-            parseInt(operand1); parseInt(operand2);
+            operand1 = parseInt(operand1); 
+            operand2 = parseInt(operand2);
             if((operand1 || operand1 === 0) && operation && (operand2 || operand2 === 0)) {
                 solution = operate(operand1, operation, operand2);
                 if(solution === Infinity || solution === NaN) {

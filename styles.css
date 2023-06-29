@@ -23,6 +23,45 @@ OBJECTIVES:
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
     font-weight: bolder;
+    border: 1px red solid;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#output-section {
+    display: flex;
+}
+
+/* #output-section {
+    border: 2px black solid;
+    border-radius: 15px;
+    background-color: grey;
+    height: 50px;
+} */
+
+ #output-text {
+    font-size: 30px;
+}
+
+#input-section {
+    display: flex;
+    gap: 10px;
+}
+
+#left-section {
+    display: grid;
+    grid-template-columns: auto auto auto;
+    gap: inherit;
+}
+
+#right-section {
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
 }
 
 .digit-button,
@@ -31,20 +70,12 @@ OBJECTIVES:
     height: 50px;
     width: 50px;
     border-radius: 15px;
-    background-color: rgb(121, 212, 121)
+/*     background-color: rgb(121, 212, 121) */
 }
 
 #clear-button {
-    width: 100px;
-}
-
-/* #output-section {
-    border: 2px black solid;
-    border-radius: 15px;
-    background-color: grey;
-    height: 50px;
-}
- */
-#output-text {
-    font-size: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 11px;
 }

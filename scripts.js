@@ -41,9 +41,6 @@ digitButtons.forEach(button => button.addEventListener("click", () => {
         preOperand2 += button.textContent;
         outputText.textContent += button.textContent;
     }
-    /* 
-    Add part here where it add the text to the output section 
-    */
 }));
 operationButtons.forEach(button => button.addEventListener("click", () => {
     if(!operation) {
@@ -53,7 +50,6 @@ operationButtons.forEach(button => button.addEventListener("click", () => {
             operand1 = preOperand1;  
         }
     }
-    /* Add part here where it adds the text to the output section */
 }));
 
 finalButtons.forEach(button => button.addEventListener("click", () => {
@@ -61,7 +57,8 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
         case "=":
             operand2 = preOperand2;
             if((operand1 || operand1 === 0) && operation && (operand2 || operand2 === 0)) {
-                solution = operate(operand1, operation, operand2);
+                solution = operate(parseInt(operand1), operation, parseInt(operand2));
+                /* Add code here to round up the answer, for visual purposes mostly! */
                 operand1 = solution; 
                 operand2 = undefined; operation = undefined;
                 preOperand1 = ""; preOperand2 = "";

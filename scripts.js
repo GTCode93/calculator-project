@@ -79,6 +79,7 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
                     outputText.textContent = "ERROR!";
                     break;
                 }
+                solution = solution.toFixed(11);
                 operand1 = solution;
                 operand2 = undefined; 
                 operation = undefined;

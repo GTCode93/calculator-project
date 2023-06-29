@@ -1,25 +1,50 @@
 /* 
 OBJECTIVES:
-* Not too much from here tbh lol
-* What will the naming system be like?
-    * Digits can be the number-button like "0-button"
-    * The main flex items can be "output" and "input"
-    * Operation buttons can be operation-button
-    * Clear can be clear-button
-    * Equal can be equal-button
 * What aesthetic/color scheme do I want the calculator to be? For now I'm leaning towards a green-ish theme cuz fun
+
 * Borders and curves will make the design look good.
     * How will the calculator buttons look like? I want them to be square-ish and curved.
     * How will the main 2 flex items look like? I want the output to have a curve and grey-ish interior/background color with a black, curved border.
     * 1st flex item, output will also need the text to orient to the right. Cuz that's how calculators work or whatever
     * I don't imagine the 2nd flex item, the input, will have a border. To make it look cohesive to the main calculator, yk.
-* What font do I want the calculator to be? It's not super necessary, but why not go all out on the last project eh?
+
 * What color will the font be?
+
 * How will the calculator sit in the page? Should I sit it in the middle of the page or should I just leave it as a default in the top left?
+
 * How large will the calculator be? That depends on general padding/margins of not just the calculator base but also the specific items.
+
 * Flexbox issues will be written below here cuz that'll be majority of the work:
     *
 
-OBJECTIVES FOR GETTING CALCULATOR TO WORK:
-* Button event listeners galore. Figure out how to do that again when you can. Luckily i already set up the HTML buttons and classes, hopefully that can help you out!
 */
+
+* {
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.digit-button,
+.operation-button,
+.final-button {
+    height: 50px;
+    width: 50px;
+    border-radius: 15px;
+    background-color: rgb(121, 212, 121)
+}
+
+#clear-button {
+    width: 100px;
+}
+
+/* #output-section {
+    border: 2px black solid;
+    border-radius: 15px;
+    background-color: grey;
+    height: 50px;
+}
+ */
+#output-text {
+    font-size: 30px;
+}

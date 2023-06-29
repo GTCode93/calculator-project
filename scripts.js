@@ -43,6 +43,7 @@ digitButtons.forEach(button => button.addEventListener("click", () => {
     }
 }));
 operationButtons.forEach(button => button.addEventListener("click", () => {
+    /* add code here so if an operation button is chosen but preOperand1 is empty, "", nothing happens. */
     if(!operation) {
         operation = button.textContent;
         outputText.textContent += " " + button.textContent + " ";
@@ -58,7 +59,9 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
             operand2 = preOperand2;
             if((operand1 || operand1 === 0) && operation && (operand2 || operand2 === 0)) {
                 solution = operate(parseInt(operand1), operation, parseInt(operand2));
-                /* Add code here to round up the answer, for visual purposes mostly! */
+                /* Add code here to round up the answer, for visual purposes mostly! 
+                    * There can be a total of  13 digits inside the output section in total without it overflowing or looking crowded.
+                */
                 operand1 = solution; 
                 operand2 = undefined; operation = undefined;
                 preOperand1 = ""; preOperand2 = "";

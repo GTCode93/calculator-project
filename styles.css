@@ -23,28 +23,43 @@ OBJECTIVES:
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 20px;
     font-weight: bolder;
-    border: 1px red solid;
+}
+
+body {
+    display: flex;
+    justify-content: center;
 }
 
 #calculator {
     display: flex;
     flex-direction: column;
     align-items: center;
+    border: 3px black solid;
+    border-radius: 15px;
+    padding: 25px 15px 25px 15px;
 }
 
 #output-section {
     display: flex;
-}
-
-/* #output-section {
-    border: 2px black solid;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: rgb(190, 190, 190);
+    border: 3px black solid;
     border-radius: 15px;
-    background-color: grey;
-    height: 50px;
-} */
+    width: 236px;
+    height: 60px;
+    margin-bottom: 15px;
+    /* These two below work on the text and how it overflows.
+        *overflow: hidden; makes it so the overflow is hidden once it leaves the div
+        *white-space: nowrap; makes it so the text only stays on one line and doesn't create two or more lines to fit the content, just like how a calculator works!
+    */
+    overflow: hidden;
+    white-space: nowrap;
+}
 
  #output-text {
     font-size: 30px;
+    padding-right: 8px;
 }
 
 #input-section {
@@ -70,6 +85,7 @@ OBJECTIVES:
     height: 50px;
     width: 50px;
     border-radius: 15px;
+    border: 2px black solid;
 /*     background-color: rgb(121, 212, 121) */
 }
 

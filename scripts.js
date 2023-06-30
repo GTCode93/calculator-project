@@ -1,11 +1,7 @@
-/* FINAL OBJECTIVES
-Top down is the most important things you should work on for the final parts of this project!
-
-    * Take the giant blocks of code and convert them into your own custom functions! These shits are LOOOOOOONG, make it readable.
-
-    * Make it so the user can press buttons on the keyboard to input numbers/operations!
+/*
+* Make it so the user can press buttons on the keyboard to input numbers/operations!
+* Take the giant blocks of code and convert them into your own custom functions! These shits are LOOOOOOONG, make it readable.
 */
-
 function add(a, b) {
     return a + b;
 }

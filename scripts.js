@@ -59,12 +59,35 @@ digitButtons.forEach(button => button.addEventListener("click", () => {
 }));
 
 operationButtons.forEach(button => button.addEventListener("click", () => {
-    if(!operation && (preOperand1 || preOperand1 === 0)) {
-        operation = button.textContent;
-        outputText.textContent += " " + button.textContent + " ";
-        if (!operand1) {
-            operand1 = preOperand1;  
-        }
+    switch(button.textContent) {
+        case "+":
+        case "-":
+        case "*":
+        case "/":
+            if(!operation && (preOperand1 || preOperand1 === 0)) {
+                operation = button.textContent;
+                outputText.textContent += " " + button.textContent + " ";
+                operand1 = preOperand1;
+            } else if (operand1 && !preOperand1 && !operation) {
+                preOperand1 = operand1;
+                operation = button.textContent;
+                outputText.textContent += " " + button.textContent + " ";
+            } break;
+        case "<<":
+            if(preOperand1 && !operation && !operand1) {
+                preOperand1 = preOperand1.slice(0, -1);
+                outputText.textContent = outputText.textContent.slice(0 ,-1);
+            } else if (preOperand2 && operation) {
+                preOperand2 = preOperand2.slice(0, -1);
+                outputText.textContent = outputText.textContent.slice(0 ,-1);
+            } else if (operand1 && !preOperand2 && operation) {
+                operation = undefined;
+                outputText.textContent = outputText.textContent.slice(0 ,-2);
+            } else if (operand1 && preOperand1) {
+                operand1 = undefined;
+                preOperand1 = preOperand1.slice(0, -1);
+                outputText.textContent = outputText.textContent.slice(0, -2);
+            }
     }
 }));
 
@@ -80,7 +103,8 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
                     outputText.textContent = "ERROR!";
                     break;
                 } else if (!Number.isInteger(solution) && solution.toString().length > 13) {
-                    numString = solution.toString(); /* Make this whole process a function later */
+                    numString = solution.toString(); 
+                    /* Make this whole process a function later */
                     numLength = numString.length;
                     do {
                         numString = numString.slice(0, -1);
@@ -89,7 +113,7 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
                     solution = Number(numString);
                     /* Verify this. Does this even round up? It just deletes the last characters and it could be faulty because of that. */
                 }
-                operand1 = solution;
+                operand1 = solution.toString();
                 operand2 = undefined; 
                 operation = undefined;
                 preOperand1 = ""; preOperand2 = "";

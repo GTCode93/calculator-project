@@ -9,6 +9,7 @@ body {
     display: flex;
     justify-content: center;
 }
+/* Make all buttons have the same border, font size, etc. Consistency! */
 
 #calculator {
     display: flex;

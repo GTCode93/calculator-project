@@ -1,8 +1,6 @@
 /* FINAL OBJECTIVES
 Top down is the most important things you should work on for the final parts of this project!
 
-    * Make it so whenever solution = operand1 (aka the solution from the last operation becomes the next operation's operand1,) and the user inputs a new number, operand 1 is erased and preOperand1 starts being defined per usual.
-
     * Make it so the user can press buttons on the keyboard to input numbers/operations!
 
     * Add a backspace button (that also works with the keyboard) where if you press it, it deletes the most previous number input.
@@ -82,7 +80,13 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
                     outputText.textContent = "ERROR!";
                     break;
                 } else if (!Number.isInteger(solution) && solution.toString().length > 13) {
-                    solution = solution.toFixed(11);
+                    numString = solution.toString(); /* Make this whole process a function later */
+                    numLength = numString.length;
+                    do {
+                        numString = numString.slice(0, -1);
+                        numLength--;
+                    } while (numLength > 13);
+                    solution = Number(numString);
                 }
                 operand1 = solution;
                 operand2 = undefined; 

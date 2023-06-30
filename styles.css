@@ -2,6 +2,7 @@
     font-family:Verdana, Geneva, Tahoma, sans-serif;
     font-size: 23px;
     font-weight: bolder;
+    box-sizing: border-box;
 }
 
 body {
@@ -46,20 +47,20 @@ body {
 }
 
 #input-section {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+
     gap: 10px;
 }
 
-#left-section {
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: inherit;
+#backspace-button {
+    grid-column-start: 2;
 }
 
-#right-section {
-    display: flex;
-    flex-direction: column;
-    gap: inherit;
+#zero-button {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    width: 116px;
 }
 
 .digit-button,
@@ -81,9 +82,17 @@ body {
     justify-content: center;
     align-items: center;
     font-size: 11px;
+}
+
+#clear-button,
+#equal-button,
+#backspace-button {
     background-color: rgb(123, 123, 123);
 }
 
+#period-button {
+    background-color: rgb(173, 199, 173)
+}
 #equal-button {
     background-color: rgb(123, 123, 123);
 }

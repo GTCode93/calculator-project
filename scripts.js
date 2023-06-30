@@ -1,11 +1,13 @@
 /* FINAL OBJECTIVES
 Top down is the most important things you should work on for the final parts of this project!
 
-    * Make it so the user can press buttons on the keyboard to input numbers/operations!
-
     * Add a backspace button (that also works with the keyboard) where if you press it, it deletes the most previous number input.
 
     * Add a period button to make it so you can work with floating numbers. Remember that in an input they can only be a single input of a period in the number input, no more.
+
+    * Take the giant blocks of code and convert them into your own custom functions! These shits are LOOOOOOONG, make it readable.
+
+    * Make it so the user can press buttons on the keyboard to input numbers/operations!
 */
 
 function add(a, b) {
@@ -57,9 +59,7 @@ digitButtons.forEach(button => button.addEventListener("click", () => {
 }));
 
 operationButtons.forEach(button => button.addEventListener("click", () => {
-    /* add code here so if an operation button is chosen but preOperand1 is empty, "", nothing happens. */
-    if(!operation) {
-
+    if(!operation && (preOperand1 || preOperand1 === 0)) {
         operation = button.textContent;
         outputText.textContent += " " + button.textContent + " ";
         if (!operand1) {
@@ -87,6 +87,7 @@ finalButtons.forEach(button => button.addEventListener("click", () => {
                         numLength--;
                     } while (numLength > 13);
                     solution = Number(numString);
+                    /* Verify this. Does this even round up? It just deletes the last characters and it could be faulty because of that. */
                 }
                 operand1 = solution;
                 operand2 = undefined; 

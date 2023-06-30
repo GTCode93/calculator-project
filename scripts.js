@@ -1,10 +1,6 @@
 /* FINAL OBJECTIVES
 Top down is the most important things you should work on for the final parts of this project!
 
-    * Add a backspace button (that also works with the keyboard) where if you press it, it deletes the most previous number input.
-
-    * Add a period button to make it so you can work with floating numbers. Remember that in an input they can only be a single input of a period in the number input, no more.
-
     * Take the giant blocks of code and convert them into your own custom functions! These shits are LOOOOOOONG, make it readable.
 
     * Make it so the user can press buttons on the keyboard to input numbers/operations!
